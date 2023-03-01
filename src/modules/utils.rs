@@ -153,6 +153,7 @@ pub async fn is_version_used(version: &str, config: &Config) -> bool {
 
 pub async fn get_current_version(config: &Config) -> Result<String> {
     let mut downloads_dir = get_downloads_folder(config).await?;
+    println!("Downloads dir location: {}", downloads_dir.display());
     downloads_dir.push("used");
     match fs::read_to_string(&downloads_dir).await {
         Ok(value) => Ok(value),
