@@ -52,7 +52,7 @@ fn create_reqwest_client() -> Result<Client, Error> {
 
 // The `Cli` enum represents the different commands that can be used in the command-line interface.
 #[derive(Debug, Parser)]
-#[command(version)]
+#[command(version = include_str!("../version.txt").trim())]
 enum Cli {
     /// Switch to the specified version, by default will auto-invoke
     /// install command if the version is not installed already
